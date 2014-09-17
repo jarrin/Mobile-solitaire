@@ -1,0 +1,25 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+body {
+  background: url("../images/background.jpg");
+  background-size: cover;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#score {
+  height: 5%;
+  background: black;
+  color: white;
+  font-size: 16px;
+}
+#score .area {
+  width: 33.333333%;
+  text-align: center;
+  float: left;
+  padding-top: 3px;
+}
