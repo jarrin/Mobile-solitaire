@@ -11,8 +11,17 @@ body {
   background-size: cover;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+#score,
+#card-deck,
+#drawer-area,
+#table,
+#stacks,
+.table-stack {
+  position: absolute;
+}
 #score {
   height: 5%;
+  width: 100%;
   background: black;
   color: white;
   font-size: 16px;
@@ -23,18 +32,36 @@ body {
   float: left;
   padding-top: 3px;
 }
-#drawer-area {
+#card-deck {
+  height: 95%;
   width: 100%;
-  height: 20%;
   top: 5%;
-  position: absoulte;
 }
-#drawer {
-  width: 110px;
-  height: 150px;
+#card-deck #drawer-area {
+  width: 25%;
+  height: 25%;
+}
+#card-deck #drawer-area #drawer {
+  height: 100%;
+}
+#card-deck #table {
+  width: 75%;
+  right: 0;
+  height: 40%;
+}
+#card-deck #stacks {
+  height: 60%;
+  width: 100%;
+  top: 40%;
+}
+#card-deck #stacks .stack {
+  width: 14.28571429%;
+  height: 100%;
+  float: left;
 }
 .card {
   background-image: url("../images/cards.svg");
+  position: absolute;
 }
 .card.sample {
   height: 80%;

@@ -2,37 +2,47 @@
  * Created by Jarrin on 17-9-14.
  */
 define(['jquery'], function ($) {
-	var User = function () {
+	var User = function (game) {
 
+		var game = game
 
 		$(document).ready(bindEvents);
 
 		function bindEvents() {
-
-			$("#score").click(startGame);
+			/* User Events */
+			console.log("aa");
+			console.log(this);
+			$(window).on('resize', setScaling);
 		}
 
 
-		function startGame() {
-			var state = engine.startNewGame();
-			for(i = 1; i <= 52; i++)
-			{
-				addCard("drawer", {}, "closed")
-			}
-			setScaling();
-		}
-		function addCard(area, card, faced) {
+		this.startGame = function() {
+			bindEvents();
+			/*$(cardOrder).each(function() {
 
-			$("#" + area).append($("<div>").addClass("card back"));
+
+
+			});
+			setScaling();*/
+		}
+		function addCard(area, suite, value, faced) {
+			if(faced == undefined) faced = "back";
+			$("#" + area).append($("<div>").addClass("card " + faced + " " + suite + " _" + value));
 
 		}
 		function setScaling()
 		{
-			var height = $(".card.sample").first().height();
+			console.log("Scaling");
+			var sample = $(".card.sample");
+			sample.show();
+			var height = sample.height();
+			sample.hide();
 			var width = height / 1.4;
-			$("div.card").css({
+			$("div.card:not(.sample)").css({
 
-				"background-size": "auto " + ( height * 5 )+ "px"
+				"background-size": "auto " + ( height * 5 )+ "px",
+				height: height,
+				width : width
 
 			});
 		}

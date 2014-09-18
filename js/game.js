@@ -29,7 +29,7 @@ define([], function () {
 				[], [], [], []
 			]
 		};
-
+		/*
 	    function deal(cards)
 		{
 			state.stacks[0] = cards.slice( 0, 1);
@@ -41,7 +41,7 @@ define([], function () {
 			state.stacks[6] = cards.slice(21,28);
 			state.drawer    = cards.slice(28,53);
 			return state;
-		}
+		}*/
 		function shuffleCards()
 		{
 			var shuffled = cards.slice(0);
@@ -63,8 +63,8 @@ define([], function () {
 		}
 		this.start = function()
 		{
-			var shuffledCards = shuffleCards();
-			return deal(shuffledCards);
+			return(shuffleCards());
+
 		}
 
 	};

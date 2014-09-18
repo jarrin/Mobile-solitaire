@@ -3,24 +3,13 @@
 	 */
 
 
-		/*
-	var currentGame = undefined;
+require.config({
+	baseUrl: 'js/',
+	paths: {
+		jquery: 'libs/jquery'
+	}
+});
 
-	jQuery(document).ready(function($) {
-
-		currentGame = new game("klondike1");
-	});
-	*/
-
-
-	require.config({
-		baseUrl: 'js/',
-		paths: {
-			jquery: 'libs/jquery'
-		}
-	});
-
-	// Load modules and use them
-	require(['engine'], function(Engine){
-		engine = new Engine();
-	});
+require(['engine'], function(Engine){
+	engine = new Engine();
+});

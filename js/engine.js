@@ -5,10 +5,14 @@ define(['game', 'user'], function (Game, User) {
 		var currentGame = undefined;
 		currentGame = new Game();
 
-		var user = new User();
-		console.log(user);
+		this.user = new User(currentGame);
 
-		this.startNewGame = currentGame.start;
+		this.start = function()
+		{
+			console.log(this.user);
+			this.user.startGame();
+
+		}
 
 	};
 
