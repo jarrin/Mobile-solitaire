@@ -6,6 +6,7 @@ define(['game', 'user'], function (Game, User) {
 		currentGame = new Game();
 
 		var user = new User();
+		console.log(user);
 
 		this.startNewGame = currentGame.start;
 

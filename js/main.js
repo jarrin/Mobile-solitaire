@@ -1,26 +1,26 @@
-/**
- * Created by Jarrin on 16-9-14.
- */
+	/**
+	 * Created by Jarrin on 16-9-14.
+	 */
 
 
-	/*
-var currentGame = undefined;
+		/*
+	var currentGame = undefined;
 
-jQuery(document).ready(function($) {
+	jQuery(document).ready(function($) {
 
-	currentGame = new game("klondike1");
-});
-*/
+		currentGame = new game("klondike1");
+	});
+	*/
 
 
-require.config({
-	baseUrl: 'js/',
-	paths: {
-		jquery: 'libs/jquery'
-	}
-});
+	require.config({
+		baseUrl: 'js/',
+		paths: {
+			jquery: 'libs/jquery'
+		}
+	});
 
-// Load modules and use them
-require(['engine'], function(Engine){
-	engine = new Engine();
-});
+	// Load modules and use them
+	require(['engine'], function(Engine){
+		engine = new Engine();
+	});

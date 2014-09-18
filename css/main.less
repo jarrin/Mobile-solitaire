@@ -1,3 +1,7 @@
+
+@card-width: 100px;
+@card-height: 140px;
+
 body, html
 {
     padding: 0;
@@ -27,4 +31,46 @@ body
 		float: left;
 		padding-top: 3px;
 	}
+}
+#drawer-area
+{
+	width: 100%;
+	height: 20%;
+	top: 5%;
+	position: absoulte;
+}
+#drawer
+{
+	width: @card-width + 10;
+	height: @card-height + 10;
+}
+.card
+{
+	background-image: url("../images/cards.svg");
+
+	&.sample {
+
+		height: 80%;
+		background: none;
+
+	}
+
+	&.clubs { background-position-y: 0; }
+	&.hearts { background-position-y: 25% }
+	&.spades { background-position-y: 50% }
+	&.diamonds { background-position-y: 75% }
+	&._0  { background-position-x: 0; }
+	&._1  { background-position-x: 8.3333333%; }
+	&._2  { background-position-x: 16.6666667%; }
+	&._3  { background-position-x: 25%; }
+	&._4  { background-position-x: 33.3333333%; }
+	&._5  { background-position-x: 41.6666667%; }
+	&._6  { background-position-x: 50%; }
+	&._7  { background-position-x: 58.3333333%; }
+	&._8  { background-position-x: 66.6666667%; }
+	&._9  { background-position-x: 75%; }
+	&._10 { background-position-x: 83.3333333%; }
+	&._11 { background-position-x: 91.6666667%; }
+	&._12 { background-position-x: 100%; }
+	&.back { background-position: 0 100%;}
 }
