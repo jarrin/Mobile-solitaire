@@ -1,16 +1,21 @@
 define(['game', 'user'], function (Game, User) {
 	var Engine = function () {
-		var _name = 'The Engine';
 
+        this.user = new User();
+
+        var _name = 'The Engine';
 		var currentGame = undefined;
-		currentGame = new Game();
 
-		this.user = new User(currentGame);
 
-		this.start = function()
+		this.startGame = function()
 		{
-			console.log(this.user);
-			this.user.startGame();
+            currentGame = new Game();
+            var that = this;
+            setTimeout(function(){
+                that.user.startGame(currentGame);
+
+            }, 500)
+
 
 		}
 

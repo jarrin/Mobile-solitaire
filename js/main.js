@@ -6,10 +6,16 @@
 require.config({
 	baseUrl: 'js/',
 	paths: {
-		jquery: 'libs/jquery'
-	}
+		'jquery': 'libs/jquery',
+        'animate_from_to': 'libs/jquery-animate-from-to'
+	},
+    shim: {
+        'animate_from_to': ['jquery']
+    }
 });
 
 require(['engine'], function(Engine){
-	engine = new Engine();
+	var engine = new Engine();
+    console.log(engine);
+    engine.startGame();
 });
