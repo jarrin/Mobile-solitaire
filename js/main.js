@@ -13,9 +13,8 @@ require.config({
         'animate_from_to': ['jquery']
     }
 });
-
+var engine;
 require(['engine'], function(Engine){
-	var engine = new Engine();
-    console.log(engine);
+	engine = new Engine();
     engine.startGame();
 });

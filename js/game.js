@@ -1,4 +1,4 @@
-define([], function () {
+define(['jquery', 'card'], function ($, Card) {
 	var Game = function () {
 		/**
 		 * Card values
@@ -17,9 +17,8 @@ define([], function () {
 		 *  12: King
 		 *
 		 */
-		 var cards =[{suite:"clubs",card:0,image:"AC"},{suite:"clubs",card:1,image:"2C"},{suite:"clubs",card:2,image:"3C"},{suite:"clubs",card:3,image:"4C"},{suite:"clubs",card:4,image:"5C"},{suite:"clubs",card:5,image:"6C"},{suite:"clubs",card:6,image:"7C"},{suite:"clubs",card:7,image:"8C"},{suite:"clubs",card:8,image:"9C"},{suite:"clubs",card:9,image:"10C"},{suite:"clubs",card:10,image:"JC"},{suite:"clubs",card:11,image:"QC"},{suite:"clubs",card:12,image:"KC"},{suite:"spades",card:0,image:"AS"},{suite:"spades",card:1,image:"2S"},{suite:"spades",card:2,image:"3S"},{suite:"spades",card:3,image:"4S"},{suite:"spades",card:4,image:"5S"},{suite:"spades",card:5,image:"6S"},{suite:"spades",card:6,image:"7S"},{suite:"spades",card:7,image:"8S"},{suite:"spades",card:8,image:"9S"},{suite:"spades",card:9,image:"10S"},{suite:"spades",card:10,image:"JS"},{suite:"spades",card:11,image:"QS"},{suite:"spades",card:12,image:"KS"},{suite:"hearts",card:0,image:"AH"},{suite:"hearts",card:1,image:"2H"},{suite:"hearts",card:2,image:"3H"},{suite:"hearts",card:3,image:"4H"},{suite:"hearts",card:4,image:"5H"},{suite:"hearts",card:5,image:"6H"},{suite:"hearts",card:6,image:"7H"},{suite:"hearts",card:7,image:"8H"},{suite:"hearts",card:8,image:"9H"},{suite:"hearts",card:9,image:"10H"},{suite:"hearts",card:10,image:"JH"},{suite:"hearts",card:11,image:"QH"},{suite:"hearts",card:12,image:"KH"},{suite:"diamonds",card:0,image:"AD"},{suite:"diamonds",card:1,image:"2D"},{suite:"diamonds",card:2,image:"3D"},{suite:"diamonds",card:3,image:"4D"},{suite:"diamonds",card:4,image:"5D"},{suite:"diamonds",card:5,image:"6D"},{suite:"diamonds",card:6,image:"7D"},{suite:"diamonds",card:7,image:"8D"},{suite:"diamonds",card:8,image:"9D"},{suite:"diamonds",card:9,image:"10D"},{suite:"diamonds",card:10,image:"JD"},{suite:"diamonds",card:11,image:"QD"},{suite:"diamonds",card:12,image:"KD"}]
-
-         var state = {
+		var cards = [{suite:"clubs",card:0},{suite:"clubs",card:1},{suite:"clubs",card:2},{suite:"clubs",card:3},{suite:"clubs",card:4},{suite:"clubs",card:5},{suite:"clubs",card:6},{suite:"clubs",card:7},{suite:"clubs",card:8},{suite:"clubs",card:9},{suite:"clubs",card:10},{suite:"clubs",card:11},{suite:"clubs",card:12},{suite:"spades",card:0},{suite:"spades",card:1},{suite:"spades",card:2},{suite:"spades",card:3},{suite:"spades",card:4},{suite:"spades",card:5},{suite:"spades",card:6},{suite:"spades",card:7},{suite:"spades",card:8},{suite:"spades",card:9},{suite:"spades",card:10},{suite:"spades",card:11},{suite:"spades",card:12},{suite:"hearts",card:0},{suite:"hearts",card:1},{suite:"hearts",card:2},{suite:"hearts",card:3},{suite:"hearts",card:4},{suite:"hearts",card:5},{suite:"hearts",card:6},{suite:"hearts",card:7},{suite:"hearts",card:8},{suite:"hearts",card:9},{suite:"hearts",card:10},{suite:"hearts",card:11},{suite:"hearts",card:12},{suite:"diamonds",card:0},{suite:"diamonds",card:1},{suite:"diamonds",card:2},{suite:"diamonds",card:3},{suite:"diamonds",card:4},{suite:"diamonds",card:5},{suite:"diamonds",card:6},{suite:"diamonds",card:7},{suite:"diamonds",card:8},{suite:"diamonds",card:9},{suite:"diamonds",card:10},{suite:"diamonds",card:11},{suite:"diamonds",card:12}]
+		this.state = {
 
 			drawer : [],
 			drew : [],
@@ -58,27 +57,27 @@ define([], function () {
                 cards[i] = t;
             }
 		}
+
+		function addToState(area, card)
+		{
+			var c = new Card(card);
+			console.log(this.state);
+			//this.state[area].push(c);
+		}
+
 		this.start = function()
 		{
 			shuffleCards();
-
+			var _this;
+			$(cards).each(function(i, card){ addToState("drawer", new Card(card))  });
+			return state;
 		}
-        this.getCards = function()
-        {
-            return cards;
-        }
-        this.getState = function()
-        {
-            return state;
-        }
-        this.setState = function(_state)
-        {
-            state = _state;
-        }
 
 	};
-
 
 	return Game;
 
 });
+
+
+

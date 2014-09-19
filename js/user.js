@@ -1,7 +1,7 @@
 /**
  * Created by Jarrin on 17-9-14.
  */
-define(['jquery', 'jquery-animate-from-to'], function ($) {
+define(['jquery'], function ($) {
 	var User = function () {
 
 
@@ -19,64 +19,48 @@ define(['jquery', 'jquery-animate-from-to'], function ($) {
 
             currentGame = game;
 
-            currentGame.start();
+            var state = currentGame.start();
+			createCardEl(state);
+
+
             console.log("User started a game...");
+/*
 
-			$(currentGame.getCards()).each(function() {
-                addCard("drawer", this.suite, this.card);
 
-			});
+			console.log(currentGame.getState());
 			setScaling();
-            deal();
+			currentGame.deal();
+*/
 
 		}
+		function createCardEl(state)
+		{
+			$(state.drawer).each(function(i, card){
 
-        function deal() {
-            var state = currentGame.getState();
-            var cardn = 1;
-            $($("#drawer .card:not(.smaple)").get().reverse()).each(function(){
-                if(cardn <= 1) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(1)').get(0));
-                }
-                else if(cardn <= 3) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(2)').get(0));
-                }
-                else if(cardn <= 6) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(3)').get(0));
-                }
-                else if(cardn <= 10) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(4)').get(0));
-                }
-                else if(cardn <= 15) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(5)').get(0));
-                }
-                else if(cardn <= 21) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(6)').get(0));
-                }
-                else if(cardn <= 28) //To first stack
-                {
-                    $(this).appendTo($('.stack:nth-child(7').get(0));
-                }
+				card.el = addCardToUI("drawer", card);
 
-
-               // console.log(this);
-                cardn++;
-            });
-        }
-		function addCard(area, suite, value, faced) {
+			});
+		}
+		function addCardToUI(area, card, faced) {
 			if(faced == undefined) faced = "back";
-			return $("#" + area).append($("<div>").addClass("card " + faced + " " + suite + " _" + value));
 
+			return $("<div>").addClass("card " + faced + " " + card.suite + " _" + card.card);
+
+		}
+		function moveAnimate(element, newParent){
+			element = $(element);
+			newParent = $(newParent);
+
+			var originPos = element.offset();
+			element.css({ position: 'fixed', left: originPos.left, top: originPos.top});
+
+			var toPos = newParent.offset();
+			element.animate({
+				left: toPos.left, top: toPos.top
+			}, 100);
 		}
 		function setScaling()
 		{
-			console.log("Scaling");
 			var sample = $(".card.sample");
 			sample.show();
 			var height = sample.height();

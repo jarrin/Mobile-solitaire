@@ -59,6 +59,24 @@ body {
   height: 100%;
   float: left;
 }
+#card-deck #stacks .stack .card:nth-child(2) {
+  top: 40px;
+}
+#card-deck #stacks .stack .card:nth-child(3) {
+  top: 80px;
+}
+#card-deck #stacks .stack .card:nth-child(4) {
+  top: 120px;
+}
+#card-deck #stacks .stack .card:nth-child(5) {
+  top: 160px;
+}
+#card-deck #stacks .stack .card:nth-child(6) {
+  top: 200px;
+}
+#card-deck #stacks .stack .card:nth-child(7) {
+  top: 240px;
+}
 .card {
   background-image: url("../images/cards.svg");
   position: absolute;
@@ -80,7 +98,7 @@ body {
   background-position-y: 75%;
 }
 .card._0 {
-  background-position-x: 0;
+  background-position-x: 0.0000000%;
 }
 .card._1 {
   background-position-x: 8.3333333%;
@@ -89,7 +107,7 @@ body {
   background-position-x: 16.6666667%;
 }
 .card._3 {
-  background-position-x: 25%;
+  background-position-x: 25.0000000%;
 }
 .card._4 {
   background-position-x: 33.3333333%;
@@ -98,7 +116,7 @@ body {
   background-position-x: 41.6666667%;
 }
 .card._6 {
-  background-position-x: 50%;
+  background-position-x: 50.0000000%;
 }
 .card._7 {
   background-position-x: 58.3333333%;
@@ -107,7 +125,7 @@ body {
   background-position-x: 66.6666667%;
 }
 .card._9 {
-  background-position-x: 75%;
+  background-position-x: 75.0000000%;
 }
 .card._10 {
   background-position-x: 83.3333333%;
@@ -116,7 +134,7 @@ body {
   background-position-x: 91.6666667%;
 }
 .card._12 {
-  background-position-x: 100%;
+  background-position-x: 100.0000000%;
 }
 .card.back {
   background-position: 0 100%;

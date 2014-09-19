@@ -4,22 +4,26 @@ define(['game', 'user'], function (Game, User) {
         this.user = new User();
 
         var _name = 'The Engine';
-		var currentGame = undefined;
+		this.currentGame = undefined;
 
 
 		this.startGame = function()
 		{
-            currentGame = new Game();
+			this.currentGame = new Game();
             var that = this;
             setTimeout(function(){
-                that.user.startGame(currentGame);
+                that.user.startGame(that.currentGame);
 
-            }, 500)
+            }, 500);
 
 
 		}
 
 	};
+	Engine.prototype.getGame = function()
+	{
+		return this.currentGame;
+	}
 
 	return Engine;
 
