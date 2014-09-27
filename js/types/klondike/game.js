@@ -1,20 +1,6 @@
 define(['jquery', 'ionsound'], function ($) {
 	var Game = function () {
 
-		//Public vars
-		/*
-		this.state = {
-
-			drawer : [],
-			drew : [],
-			stacks: [
-				[], [], [], [], [], [], []
-			],
-			table: [
-				[], [], [], []
-			]
-		};*/
-
 		//Private vars
 		var animateTime  = 1000;
 		$.fn.reverse = [].reverse;
@@ -54,7 +40,7 @@ define(['jquery', 'ionsound'], function ($) {
 
 			var _curStack = 0;
 			var _offset    = [-1,-1,-1,-1,-1,-1,-1];
-			var dur; var animateDur = 1000;
+			var dur; var animateDur = 1;
 
 			$(this.cardsObj).each(function(i, card){
 				i++;
@@ -68,7 +54,7 @@ define(['jquery', 'ionsound'], function ($) {
 				else if(i <= 28) { _curStack = 6; _offset[6]++; }
 				else return;
 
-				dur = (i -1) * 100;
+				dur = (i -1) * animateDur;
 				setTimeout(function(curstack, offset){
 
 					card.moveMeTo($(".stack:nth-child(" + (curstack+1) + ")"), { top: offset }, animateDur);
@@ -78,14 +64,9 @@ define(['jquery', 'ionsound'], function ($) {
 			});
 			setTimeout(function(flip){
 				flip($(".stack .card:last-child"));
-			}, dur+animateDur+100, this.flip);
+			}, dur+animateDur+200, this.flip);
 		}
 
-
-	}
-	Game.prototype.getValidPositions = function()
-	{
-		console.log("x");
 	}
 	return Game;
 });
